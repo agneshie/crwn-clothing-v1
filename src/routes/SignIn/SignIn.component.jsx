@@ -1,4 +1,9 @@
-import { signInWithGooglePopup, createUserDocumentFromAuth } from "../../utils/Firebase/Firebase.utils";
+import { 
+  signInWithGooglePopup, 
+  createUserDocumentFromAuth, 
+} from "../../utils/Firebase/Firebase.utils";
+
+import SignUpForm from "../../component/SignUpForm/SignUpForm.component";
 
 function SignIn() {
 
@@ -13,6 +18,7 @@ function SignIn() {
       <button onClick={logGoogleUser}>
         Sign in with Google Popup
       </button>
+      <SignUpForm />
     </div>
   );
 }
