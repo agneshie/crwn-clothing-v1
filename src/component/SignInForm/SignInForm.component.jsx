@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import { 
   signInWithGooglePopup, 
-  createUserDocumentFromAuth,
   signAuthUserWithEmailAndPassword 
 } from "../../utils/Firebase/Firebase.utils";
 
@@ -21,9 +20,9 @@ function SignInForm() {
   const [ formFields, setFormFields ] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+
   const signInWithGoogle = async () => {
-    const {user} = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   } 
 
   const resetFormFields = () => {
@@ -42,8 +41,8 @@ function SignInForm() {
     event.preventDefault();
     
     try {
-      const response = await signAuthUserWithEmailAndPassword(email, password);
-      console.log(response);
+      await signAuthUserWithEmailAndPassword(email, password);
+
       resetFormFields();
 
     } catch (error) {
